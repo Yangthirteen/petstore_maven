@@ -23,8 +23,8 @@
             "PROFILE.BANNEROPT AS bannerOption," +
             "BANNERDATA.BANNERNAME" +
             " FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA" +
-            " WHERE ACCOUNT.USERID = {username}" +
-            " AND SIGNON.PASSWORD = {password}" +
+            " WHERE ACCOUNT.USERID = #{username}" +
+            " AND SIGNON.PASSWORD = #{password}" +
             " AND SIGNON.USERNAME = ACCOUNT.USERID" +
             " AND PROFILE.USERID = ACCOUNT.USERID" +
             " AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY
@@ -50,7 +50,7 @@ SELECT" +
             "PROFILE.BANNEROPT AS bannerOption," +
             "BANNERDATA.BANNERNAME" +
             " FROM ACCOUNT, PROFILE, SIGNON, BANNERDATA" +
-            " WHERE ACCOUNT.USERID = {username}" +
+            " WHERE ACCOUNT.USERID = #{username}" +
             " AND SIGNON.USERNAME = ACCOUNT.USERID" +
             " AND PROFILE.USERID = ACCOUNT.USERID" +
             " AND PROFILE.FAVCATEGORY = BANNERDATA.FAVCATEGORY
@@ -62,39 +62,39 @@ INSERT INTO ACCOUNT (EMAIL, FIRSTNAME, LASTNAME, STATUS, ADDR1, ADDR2, CITY, STA
 
     <select id="insertProfile" parameterType="domain.Account">
 INSERT INTO PROFILE (LANGPREF, FAVCATEGORY, USERID)" +
-            " VALUES ({languagePreference}, {favouriteCategoryId}, {username})
+            " VALUES (#{languagePreference}, #{favouriteCategoryId}, #{username})
     </select>
 
     <select id="insertSignon" parameterType="domain.Account">
 INSERT INTO SIGNON (PASSWORD,USERNAME)" +
-            " VALUES ({password}, {username})
+            " VALUES (#{password}, #{username})
     </select>
 
     <select id="updateAccount" parameterType="domain.Account">
 UPDATE ACCOUNT SET" +
-            " EMAIL = {email}," +
-            "FIRSTNAME = {firstname}," +
-            "LASTNAME = {lastname}," +
-            "STATUS = {status}," +
-            "ADDR1 = {addr1}," +
-            "ADDR2 = {addr2}," +
-            "CITY = {city}," +
-            "STATE = {state}," +
-            "ZIP = {zip}," +
-            "COUNTRY = {country}," +
-            "PHONE = {phone}" +
-            "WHERE USERID = {username}
+            " EMAIL = #{email}," +
+            "FIRSTNAME = #{firstname}," +
+            "LASTNAME = #{lastname}," +
+            "STATUS = #{status}," +
+            "ADDR1 = #{addr1}," +
+            "ADDR2 = #{addr2}," +
+            "CITY = #{city}," +
+            "STATE = #{state}," +
+            "ZIP = #{zip}," +
+            "COUNTRY = #{country}," +
+            "PHONE = #{phone}" +
+            "WHERE USERID = #{username}
     </select>
 
     <select id="updateProfile" parameterType="domain.Account">
 UPDATE PROFILE SET" +
-            " LANGPREF = {languagePreference}," +
-            "FAVCATEGORY = {favouriteCategoryId}" +
-            " WHERE USERID = {username}
+            " LANGPREF = #{languagePreference}," +
+            "FAVCATEGORY = #{favouriteCategoryId}" +
+            " WHERE USERID = #{username}
     </select>
 
     <select id="updateSignon" parameterType="domain.Account">
-UPDATE SIGNON SET PASSWORD = {password}" +
-            " WHERE USERNAME = {username}
+UPDATE SIGNON SET PASSWORD = #{password}" +
+            " WHERE USERNAME = #{username}
     </select>
 </mapper>

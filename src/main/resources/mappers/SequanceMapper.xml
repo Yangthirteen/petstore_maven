@@ -2,12 +2,16 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="persistence.AccountDAO">
+<mapper namespace="persistence.SequanceDAO">
     <select id="getSequence" parameterType="domain.Sequence" resultType="domain.Sequence">
-
+SELECT name, nextid" +
+            " FROM SEQUENCE" +
+            " WHERE NAME = #{name}
     </select>
 
     <select id="updateSequence" parameterType="domain.Sequence">
-
+UPDATE SEQUENCE" +
+            " SET NEXTID = #{nextId}" +
+            " WHERE NAME = #{name}
     </select>
 </mapper>

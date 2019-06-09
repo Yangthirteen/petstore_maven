@@ -2,12 +2,8 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="persistence.AccountDAO">
+<mapper namespace="persistence.UserActionDAO">
     <select id="recordAction">
-
-    </select>
-
-    <select id="action" resultType="java.lang.String">
-
+INSERT INTO USERACTION (USERNAME, ACTION, DATE) VALUES (${username}, ${action}, ${date})
     </select>
 </mapper>

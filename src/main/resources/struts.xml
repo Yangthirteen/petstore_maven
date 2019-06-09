@@ -9,5 +9,8 @@
         <action name="demoAction" class="web.DemoAction">
             <result name="success">/WEB-INF/jsp/Demo.jsp</result>
         </action>
+        <action name="main" class="web.MainAction">
+            <result name="success">/WEB-INF/jsp/catelog/Main.jsp</result>
+        </action>
     </package>
 </struts>
