@@ -19,5 +19,13 @@
 
     <mappers>
         <mapper resource="mappers/AccountMapper.xml"/>
+        <mapper resource="mappers/CategoryMapper.xml"/>
+        <mapper resource="mappers/ItemMapper.xml"/>
+        <mapper resource="mappers/LineItemMapper.xml"/>
+        <mapper resource="mappers/OrderMapper.xml"/>
+        <mapper resource="mappers/ProductMapper.xml"/>
+        <mapper resource="mappers/SearchMapper.xml"/>
+        <mapper resource="mappers/SequanceMapper.xml"/>
+        <mapper resource="mappers/UserActionMapper.xml"/>
     </mappers>
 </configuration>

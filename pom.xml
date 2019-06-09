@@ -75,6 +75,14 @@
       <artifactId>slf4j-simple</artifactId>
       <version>1.7.25</version>
     </dependency>
+
+    <!-- https://mvnrepository.com/artifact/net.sourceforge.stripes/stripes -->
+    <dependency>
+      <groupId>net.sourceforge.stripes</groupId>
+      <artifactId>stripes</artifactId>
+      <version>1.6.0</version>
+    </dependency>
+
   </dependencies>
 
   <build>

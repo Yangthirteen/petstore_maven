@@ -25,11 +25,11 @@ public class SqlSessionFactoryUtil {
         return sf;
     }
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         Account login = new Account();
         login.setUsername("admin");
-        login.setPassword("123456");
+        login.setPassword("1234567");
 
         SqlSession sqlSession = getSqlSessionFactory().openSession();
 
@@ -38,5 +38,5 @@ public class SqlSessionFactoryUtil {
         Account result = accountDAO.selectAccountByUsernameAndPassword(login);
 
         System.out.println(result.getId());
-    }
+    }*/
 }
