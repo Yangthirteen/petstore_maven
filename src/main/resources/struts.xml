@@ -9,8 +9,19 @@
         <action name="demoAction" class="web.DemoAction">
             <result name="success">/WEB-INF/jsp/Demo.jsp</result>
         </action>
+
         <action name="main" class="web.MainAction">
             <result name="success">/WEB-INF/jsp/catelog/Main.jsp</result>
+        </action>
+
+        <action name="viewProduct" class="web.ViewProductAction" method="getProductListByCategory">
+            <result name="success">/WEB-INF/jsp/catelog/Product.jsp</result>
+            <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
+        </action>
+
+        <action name="viewCategory" class="web.ViewCategoryAction" method="getProductListByCategory">
+            <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
+            <result name="success">/WEB-INF/jsp/catelog/Product.jsp</result>
         </action>
     </package>
 </struts>

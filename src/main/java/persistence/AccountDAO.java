@@ -4,7 +4,7 @@ import domain.Account;
 
 public interface AccountDAO {
 
-    public Account selectAccountByUsernameAndPassword(Account account);
+    public Account getAccountByUsernameAndPassword(Account account);
 
     public Account getAccountByUsername(String username);
 
