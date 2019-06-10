@@ -1,7 +1,7 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink">
-	<a href="viewCart">Return to Shopping Cart</a>
+	<s:a href="viewCart">Return to Shopping Cart</s:a>
 	
 </div>
 
@@ -23,24 +23,28 @@
 				<td><b>List Price</b></td>
 				<td><b>Total Cost</b></td>
 			</tr>
-
-			<c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
-				<tr>
-					<td>
-						<a href="viewItem?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
-			    </td>
-					<td>${cartItem.item.product.productId}</td>
-					<td>${cartItem.item.attribute1} ${cartItem.item.attribute2}
-					${cartItem.item.attribute3} ${cartItem.item.attribute4}
-					${cartItem.item.attribute5} ${cartItem.item.product.name}</td>
-					<td>${cartItem.inStock}</td>
-					<td>${cartItem.quantity}</td>
+      <s:iterator var="cartItem" value="cart.cartItems">
+	    <tr>
+	    <td>
+	    <s:a href="viewItem?itemId=%{#cartItem.item.itemId}"><s:property value="%{#cartItem.item.itemId}"/> </s:a>
+     	</td>
+	    <td><s:property value="%{#cartItem.item.product.productId}"/> </td>
+	    <td>
+	    <s:property value="#cartItem.item.attribute1"/>
+	    <s:property value="#cartItem.item.attribute2"/>
+	    <s:property value="#cartItem.item.attribute3"/>
+	    <s:property value="#cartItem.item.attribute4"/>
+	    <s:property value="#cartItem.item.attribute5"/>
+	    <s:property value="#cartItem.item.product.name"/>
+	    </td>
+	    <td><s:property value="%{#cartItem.inStock}"/> </td>
+			<td><s:property value="%{#cartItem.quantity}"/></td>
 					<td><fmt:formatNumber value="${cartItem.item.listPrice}"
 						pattern="$#,##0.00" /></td>
 					<td><fmt:formatNumber value="${cartItem.total}"
 						pattern="$#,##0.00" /></td>
 				</tr>
-			</c:forEach>
+	  </s:iterator>
 			<tr>
 				<td colspan="7">Sub Total: <fmt:formatNumber
 					value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" /></td>

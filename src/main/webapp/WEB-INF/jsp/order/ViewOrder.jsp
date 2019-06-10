@@ -8,102 +8,104 @@
 
 <table>
 	<tr>
-		<th align="center" colspan="2">Order #${sessionScope.order.orderId}
-		<fmt:formatDate value="${sessionScope.order.orderDate}"
-			pattern="yyyy/MM/dd hh:mm:ss" /></th>
+		<th align="center" colspan="2">Order #<s:property value=" %{#order.orderId}"/>
+			<s:date name="%{#order.orderDate}" format="yyyy/MM/dd hh:mm:ss"/>
+		</th>
 	</tr>
 	<tr>
 		<th colspan="2">Payment Details</th>
 	</tr>
 	<tr>
 		<td>Card Type:</td>
-		<td><c:out value="${sessionScope.order.cardType}" /></td>
+		<td><s:property value="%{#order.cardType}" /></td>
 	</tr>
 	<tr>
 		<td>Card Number:</td>
-		<td><c:out value="${sessionScope.order.creditCard}" /> * Fake
+		<td><s:property value="%{#order.creditCard}" /> * Fake
 		number!</td>
 	</tr>
 	<tr>
 		<td>Expiry Date (MM/YYYY):</td>
-		<td><c:out value="${sessionScope.order.expiryDate}" /></td>
+		<td><s:property value="%{#order.expiryDate}" /></td>
 	</tr>
 	<tr>
 		<th colspan="2">Billing Address</th>
 	</tr>
+
 	<tr>
 		<td>First name:</td>
-		<td><c:out value="${sessionScope.order.billToFirstName}" /></td>
+		<td> <s:property value="%{#order.billToFirstName}" /></td>
 	</tr>
 	<tr>
 		<td>Last name:</td>
-		<td><c:out value="${sessionScope.order.billToLastName}" /></td>
+		<td><s:property value="%{#order.billToLastName}" /></td>
 	</tr>
 	<tr>
 		<td>Address 1:</td>
-		<td><c:out value="${sessionScope.order.billAddress1}" /></td>
+		<td><s:property value="%{#order.billAddress1}" /></td>
 	</tr>
 	<tr>
 		<td>Address 2:</td>
-		<td><c:out value="${sessionScope.order.billAddress2}" /></td>
+		<td><s:property value="%{#order.billAddress2}" /></td>
 	</tr>
 	<tr>
 		<td>City:</td>
-		<td><c:out value="${sessionScope.order.billCity}" /></td>
+		<td><s:property value="%{#order.billCity}" /></td>
 	</tr>
 	<tr>
 		<td>State:</td>
-		<td><c:out value="${sessionScope.order.billState}" /></td>
+		<td><s:property value="%{#order.billState}" /></td>
 	</tr>
 	<tr>
 		<td>Zip:</td>
-		<td><c:out value="${sessionScope.order.billZip}" /></td>
+		<td><s:property value="%{#order.billZip}" /></td>
 	</tr>
 	<tr>
 		<td>Country:</td>
-		<td><c:out value="${sessionScope.order.billCountry}" /></td>
+		<td><s:property value="%{#order.billCountry}" /></td>
 	</tr>
 	<tr>
 		<th colspan="2">Shipping Address</th>
 	</tr>
 	<tr>
 		<td>First name:</td>
-		<td><c:out value="${sessionScope.order.shipToFirstName}" /></td>
+		<td><<s:property value="%{#order.shipToFirstName}" /></td>
 	</tr>
 	<tr>
 		<td>Last name:</td>
-		<td><c:out value="${sessionScope.order.shipToLastName}" /></td>
+		<td><s:property value="%{#order.shipToLastName}" /></td>
 	</tr>
 	<tr>
 		<td>Address 1:</td>
-		<td><c:out value="${sessionScope.order.shipAddress1}" /></td>
+		<td><s:property value="%{#order.shipAddress1}" /></td>
 	</tr>
 	<tr>
 		<td>Address 2:</td>
-		<td><c:out value="${sessionScope.order.shipAddress2}" /></td>
+		<td><s:property value="%{#order.shipAddress2}" /></td>
 	</tr>
 	<tr>
 		<td>City:</td>
-		<td><c:out value="${sessionScope.order.shipCity}" /></td>
+		<td><s:property value="%{#order.shipCity}" /></td>
 	</tr>
 	<tr>
 		<td>State:</td>
-		<td><c:out value="${sessionScope.order.shipState}" /></td>
+		<td><s:property value="%{#order.shipState}" /></td>
 	</tr>
 	<tr>
 		<td>Zip:</td>
-		<td><c:out value="${sessionScope.order.shipZip}" /></td>
+		<td><s:property value="%{#order.shipZip}" /></td>
 	</tr>
 	<tr>
 		<td>Country:</td>
-		<td><c:out value="${sessionScope.order.shipCountry}" /></td>
+		<td><s:property value="%{#order.shipCountry}" /></td>
 	</tr>
+
 	<tr>
 		<td>Courier:</td>
-		<td><c:out value="${sessionScope.order.courier}" /></td>
+		<td><s:property value="%{#order.courier}" /></td>
 	</tr>
 	<tr>
-		<td colspan="2">Status: <c:out value="${sessionScope.order.status}" /></td>
+		<td colspan="2">Status: <s:property value="%{#order.status}" /></td>
 	</tr>
 	<tr>
 		<td colspan="2">
@@ -115,30 +117,39 @@
 				<th>Price</th>
 				<th>Total Cost</th>
 			</tr>
-			<c:forEach var="lineItem" items="${sessionScope.order.lineItems}">
+			<s:iterator var="lineItem" value="order.lineItems">
 				<tr>
 					<td>
-
-						<a href="viewItem?itemId=${lineItem.item.itemId}">${lineItem.item.itemId}</a>
+						<s:a href="viewItem?itemId=%{#lineItem.item.itemId}"><s:property value="%{#lineItem.item.itemId}"/> </s:a>
 					</td>
-					<td><c:if test="${lineItem.item != null}">
-						${lineItem.item.attribute1}
-						${lineItem.item.attribute2}
-						${lineItem.item.attribute3}
-						${lineItem.item.attribute4}
-						${lineItem.item.attribute5}
-						${lineItem.item.product.name}
-					</c:if> <c:if test="${lineItem.item == null}">
-						<i>{description unavailable}</i>
-					</c:if></td>
+					<td><s:if test="%{#lineItem.item != null}">
+						<s:property value="#lineItem.item.attribute1"/>
+						<s:property value="#lineItem.item.attribute2"/>
+						<s:property value="#lineItem.item.attribute3"/>
+						<s:property value="#lineItem.item.attribute4"/>
+						<s:property value="#lineItem.item.attribute5"/>
+						<s:property value="#lineItem.item.product.name"/>
+						</s:if>
+						<s:if test="%{#lineItem.item == null}">
+							<i>{description unavailable}</i>
+						</s:if></td>
 
 					<td>${lineItem.quantity}</td>
 					<td><fmt:formatNumber value="${lineItem.unitPrice}"
-						pattern="$#,##0.00" /></td>
+										  pattern="$#,##0.00" /></td>
 					<td><fmt:formatNumber value="${lineItem.total}"
-						pattern="$#,##0.00" /></td>
+										  pattern="$#,##0.00" /></td>
 				</tr>
-			</c:forEach>
+					</td>
+					<td><fmt:formatNumber value="${item.listPrice}"
+										  pattern="$#,##0.00" /></td>
+					<td>
+						<s:a class="Button" href="addItemToCart?workingItemId=%{#item.itemId}" >Add to Cart</s:a>
+
+					</td>
+				</tr>
+			</s:iterator>
+
 			<tr>
 				<th colspan="5">Total: <fmt:formatNumber
 					value="${sessionScope.order.totalPrice}" pattern="$#,##0.00" /></th>

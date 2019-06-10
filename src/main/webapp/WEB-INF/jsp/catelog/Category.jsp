@@ -1,27 +1,29 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink">
-   <a href="main">Return to Main Menu</a>
+   <s:a href="main">Return to Main Menu</s:a>
 </div>
 <div id="Catalog">
 
-<h2>${sessionScope.category.name}</h2>
+<h2><s:property value="category.name"/></h2>
 
 <table>
 	<tr>
 		<th>Product ID</th>
 		<th>Name</th>
 	</tr>
-	<c:forEach var="product" items="${sessionScope.productList}">
+	<s:iterator value="productList" var="product">
 		<tr>
 			<td>
 
-				<a href="viewProduct?productId=${product.productId}">${product.productId}</a>
+				<s:a href="viewProduct?productId=%{#product.productId}"><s:property value="%{#product.productId}"/></s:a>
 
 			</td>
-			<td>${product.name}</td>
+
+			<td><s:property value="%{#product.name}"/></td>
 		</tr>
-	</c:forEach>
+	</s:iterator>
+
 </table>
 
 </div>

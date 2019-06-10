@@ -20,7 +20,7 @@
     <div id="Main">
         <div id="Sidebar">
             <div id="SidebarContent">
-                <a href="viewCategory?category.categoryId=FISH"><img src="images/fish_icon.gif" /></a>
+                <a href="viewCategory?categoryId=FISH"><img src="images/fish_icon.gif" /></a>
                 <br/> Saltwater, Freshwater <br/>
                 <a href="viewCategory?categoryId=DOGS"><img src="images/dogs_icon.gif" /></a>
                 <br /> Various Breeds <br />

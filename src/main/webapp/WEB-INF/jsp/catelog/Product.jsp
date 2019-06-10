@@ -3,12 +3,13 @@
 
 
 <div id="BackLink">
-	<a href="viewCategory?categoryId=${sessionScope.product.categoryId}">Return to ${sessionScope.product.categoryId}</a>
+	<s:a href="viewCategory?categoryId=%{#product.categoryId}">Return to <s:property value=" %{#product.categoryId}"/></s:a>
+
 </div>
 
 <div id="Catalog">
 
-<h2>${sessionScope.product.name}</h2>
+<h2> <s:property value="#product.name"/> </h2>
 
 <table>
 	<tr>
@@ -18,22 +19,29 @@
 		<th>List Price</th>
 		<th>&nbsp;</th>
 	</tr>
-	<c:forEach var="item" items="${sessionScope.itemList}">
+	<s:iterator var="item" value="itemList">
 		<tr>
 			<td>
-				<a href="viewItem?itemId=${item.itemId}">${item.itemId}</a>
+				<s:a href="viewItem?itemId=%{#item.itemId}"><s:property value="%{#item.itemId}"/> </s:a>
 			</td>
-			<td>${item.product.productId}</td>
-			<td>${item.attribute1} ${item.attribute2} ${item.attribute3}
-			${item.attribute4} ${item.attribute5} ${sessionScope.product.name}</td>
-			<td><fmt:formatNumber value="${item.listPrice}"
-				pattern="$#,##0.00" /></td>
+			<td><s:property value="%{#item.product.productId}"/> </td>
 			<td>
-				<a class="Button" href="addItemToCart?workingItemId=${item.itemId}" >Add to Cart</a>
+				<s:property value="#item.attribute1"/>
+				<s:property value="#item.attribute2"/>
+				<s:property value="#item.attribute3"/>
+				<s:property value="#item.attribute4"/>
+				<s:property value="#item.attribute5"/>
+				<s:property value="#product.name"/>
+			</td>
+			<td><fmt:formatNumber value="${item.listPrice}"
+								  pattern="$#,##0.00" /></td>
+			<td>
+				<s:a class="Button" href="addItemToCart?workingItemId=%{#item.itemId}" >Add to Cart</s:a>
 
-       </td>
+			</td>
 		</tr>
-	</c:forEach>
+	</s:iterator>
+
 	<tr>
 		<td>
 		</td>
