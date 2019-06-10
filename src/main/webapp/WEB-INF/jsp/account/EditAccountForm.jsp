@@ -7,7 +7,7 @@
 	<table>
 		<tr>
 			<td>User ID:</td>
-			<td>${sessionScope.username}</td>
+			<td><s:property value="%{#username}"/></td>
 		</tr>
 		<tr>
 			<td>New password:</td>
@@ -24,7 +24,7 @@
 		<input class="button" type="submit" name="editAccount" value="Save Account Information">
 	</form>
 
-	<a href="viewOrderList?username="${sessionScope.username}" >My Orders</a>
+	<s:a href="viewOrderList?username=%{#username}">My Orders</s:a>
 </div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

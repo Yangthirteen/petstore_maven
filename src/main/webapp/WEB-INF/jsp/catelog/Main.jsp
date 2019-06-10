@@ -9,26 +9,25 @@
 
 
     <div id="Welcome">
-        <div id="WelcomeContent"><c:if
-                test="${sessionScope.accountBean != null }">
-            <c:if test="${sessionScope.accountBean.authenticated}">
-                Welcome ${sessionScope.accountBean.account.firstName}!
-            </c:if>
-        </c:if></div>
+        <div id="WelcomeContent"><s:if test="%{#accountBean} != null ">
+            <s:if test="%{#accountBean.authenticated}">
+                Welcome <s:property value="#accountBean.account.firstName"/>!
+            </s:if>
+        </s:if></div>
     </div>
 
     <div id="Main">
         <div id="Sidebar">
             <div id="SidebarContent">
-                <a href="viewCategory?categoryId=FISH"><img src="images/fish_icon.gif" /></a>
+                <s:a href="viewCategory?categoryId=FISH"><img src="images/fish_icon.gif" /></s:a>
                 <br/> Saltwater, Freshwater <br/>
-                <a href="viewCategory?categoryId=DOGS"><img src="images/dogs_icon.gif" /></a>
+                <s:a href="viewCategory?categoryId=DOGS"><img src="images/dogs_icon.gif" /></s:a>
                 <br /> Various Breeds <br />
-                <a href="viewCategory?categoryId=CATS"><img src="images/cats_icon.gif" /></a>
+                <s:a href="viewCategory?categoryId=CATS"><img src="images/cats_icon.gif" /></s:a>
                 <br /> Various Breeds, Exotic Varieties <br />
-                <a href="viewCategory?categoryId=REPTILES"><img src="images/reptiles_icon.gif" /></a>
+                <s:a href="viewCategory?categoryId=REPTILES"><img src="images/reptiles_icon.gif" /></s:a>
                 <br /> Lizards, Turtles, Snakes <br />
-                <a href="viewCategory?categoryId=BIRDS"><img src="images/birds_icon.gif" /></a>
+                <s:a href="viewCategory?categoryId=BIRDS"><img src="images/birds_icon.gif" /></s:a>
                 <br /> Exotic Varieties
             </div>
         </div>

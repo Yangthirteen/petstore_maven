@@ -9,16 +9,16 @@
 
 <div id="Footer">
 
-    <div id="PoweredBy">&nbsp<a href="www.csu.edu.cn">www.csu.edu.cn</a>
+    <div id="PoweredBy">&nbsp<s:a href="www.csu.edu.cn">www.csu.edu.cn</s:a>
     </div>
 
-    <div id="Banner"><c:if test="${sessionScope.account != null }">
-        <c:if test="${sessionScope.authenticated}">
-            <c:if test="${sessionScope.account.bannerOption}">
-                ${sessionScope.account.bannerName}
-            </c:if>
-        </c:if>
-    </c:if></div>
+    <div id="Banner"><s:if test="account != null ">
+        <s:if test="authenticated">
+            <s:if test="account.bannerOption">
+                <s:property value="account.bannerName"/>
+            </s:if>
+        </s:if>
+    </s:if></div>
 
 </div>
 

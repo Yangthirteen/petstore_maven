@@ -2,33 +2,39 @@
 
 <div id="BackLink">
 	
-	<a href="viewProduct?productId=${sessionScope.product.productId}">Return to ${sessionScope.product.productId}</a>
+	<s:a href="viewProduct?productId=%{#product.productId}">Return to <s:property value=" %{#product.productId}"/></s:a>
 </div>
 
 <div id="Catalog">
 
 <table>
 	<tr>
-		<td>${sessionScope.product.description}</td>
+
+		<td><s:property value="#product.description"/></td>
 	</tr>
 	<tr>
-		<td><b> ${sessionScope.item.itemId} </b></td>
+
+		<td><b> <s:property value="#item.itemId"/> </b></td>
 	</tr>
 	<tr>
-		<td><b><font size="4"> ${sessionScope.item.attribute1}
-		${sessionScope.item.attribute2} ${sessionScope.item.attribute3}
-		${sessionScope.item.attribute4} ${sessionScope.item.attribute5}
-		${sessionScope.product.name} </font></b></td>
+		<td><b><font size="4">
+			<s:property value="#item.attribute1"/>
+			<s:property value="#item.attribute2"/>
+			<s:property value="#item.attribute3"/>
+			<s:property value="#item.attribute4"/>
+			<s:property value="#item.attribute5"/>
+			<s:property value="#product.name"/>
+		</font></b></td>
 	</tr>
 	<tr>
-		<td>${sessionScope.product.name}</td>
+		<td><s:property value="#product.name"/></td>
 	</tr>
 	<tr>
-		<td><c:if test="${sessionScope.item.quantity <= 0}">
+		<td><s:if test="%{#item.quantity <= 0}">
         Back ordered.
-      </c:if> <c:if test="${sessionScope.item.quantity > 0}">
-      	${sessionScope.item.quantity} in stock.
-	  </c:if></td>
+      </s:if> <s:if test="%{#item.quantity > 0}">
+			<s:property value="#item.quantity"/> in stock.
+	  </s:if></td>
 	</tr>
 	<tr>
 		<td><fmt:formatNumber value="${sessionScope.item.listPrice}"
@@ -37,7 +43,7 @@
 
 	<tr>
 		<td>
-            <a class="Button" href="addItemToCart?workingItemId=${sessionScope.item.itemId}" >Add to Cart</a>
+            <s:a class="Button" href="addItemToCart?workingItemId=%{#item.itemId}" >Add to Cart</s:a>
        </td>
 
 	</tr>

@@ -1,12 +1,14 @@
-<c:if test="${!empty sessionScope.myList}">
+<s:if test="%{#myList !=null }">
 	<p>Pet Favorites <br />
 	Shop for more of your favorite pets here.</p>
 	<ul>
-		<c:forEach var="product" items="${sessionScope.myList}">
+		<s:iterator var="product" value="myList">
 			<li>
-				<a href="viewProduct?productId=${product.productId}">${product.name}</a>
-		 (${product.productId})</li>
-		</c:forEach>
+				<s:a href="viewProduct?productId=%{#product.productId}"><s:property value="%{#product.name}"/></s:a>
+				(<s:property value="%{#product.productId}"/>)
+			</li>
+		</s:iterator>
+
 	</ul>
 
-</c:if>
+</s:if>

@@ -13,14 +13,14 @@
 
 		<a class="Button" href="signonForm" style="vertical-align: top">change another</a><br/>
 
-			<c:if test="${sessionScope.flag}">
+			<s:if test="%{#flag}">
 				<font color="red" size="4">identifying code is error</font>
-			</c:if>
+			</s:if>
 		</p>
 		<input class="button" type="submit" name="signon" value="Login">
 	</form>
       Need a user name and password?
-	<a href="newAccountForm">Register Now!</a>
+	<s:a href="newAccountForm">Register Now!</s:a>
 </div>
 
 <%@ include file="../common/IncludeBottom.jsp"%>

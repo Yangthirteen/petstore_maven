@@ -23,36 +23,40 @@
 			<th>&nbsp;</th>
 		</tr>
 
-		<c:if test="${sessionScope.cart.numberOfItems == 0}">
+		<s:if test="%{#cart.numberOfItems == 0}">
 			<tr>
 				<td colspan="8"><b>Your cart is empty.</b></td>
 			</tr>
-		</c:if>
+		</s:if>
 
-		<c:forEach var="cartItem" items="${sessionScope.cart.cartItems}">
-			<tr>
+   <s:iterator var="cartItem" value="cart.cartItems">
+	  <tr>
+	  <td>
+	  <s:a href="viewItem?itemId=%{#cartItem.item.itemId}"><s:property value="%{#cartItem.item.itemId}"/> </s:a>
+	  </td>
+	  <td><s:property value="%{#cartItem.item.product.productId}"/> </td>
+	  <td>
+	  <s:property value="#cartItem.item.attribute1"/>
+	  <s:property value="#cartItem.item.attribute2"/>
+	  <s:property value="#cartItem.item.attribute3"/>
+	  <s:property value="#cartItem.item.attribute4"/>
+	  <s:property value="#cartItem.item.attribute5"/>
+	  <s:property value="#cartItem.item.product.name"/>
+	  </td>
+		  <td><s:property value="%{#cartItem.inStock}"/> </td>
 				<td>
-
-					<a href="viewItem?itemId=${cartItem.item.itemId}">${cartItem.item.itemId}</a>
-			  </td>
-				<td>${cartItem.item.product.productId}</td>
-				<td>${cartItem.item.attribute1} ${cartItem.item.attribute2}
-				${cartItem.item.attribute3} ${cartItem.item.attribute4}
-				${cartItem.item.attribute5} ${cartItem.item.product.name}</td>
-				<td>${cartItem.inStock}</td>
-				<td>
-					<input type="text" size="3" name="${cartItem.item.itemId}"
-						   id="update" value="${cartItem.quantity}" onchange="update111()"/>
+					<input type="text" size="3" name="<s:property value=" %{#cartItem.item.itemId}"/>"/>
+						   id="update" value="%{#cartItem.quantity}" onchange="update111()"/>
 					</td>
 				<td><fmt:formatNumber value="${cartItem.item.listPrice}"
 					pattern="$#,##0.00" /></td>
 				<td id="total"><fmt:formatNumber  value="${cartItem.total}"
 					pattern="$#,##0.00" /></td>
 				<td>
-					<a class="Button" href="removeItemFromCart?cartItemId=${cartItem.item.itemId}" >Remove</a>
+					<s:a class="Button" href="removeItemFromCart?cartItemId=%{#cartItem.item.itemId}" >Remove</s:a>
                  </td>
 			</tr>
-		</c:forEach>
+   </s:iterator>
 		<tr>
 			<td colspan="7">Sub Total: <fmt:formatNumber
 				value="${sessionScope.cart.subTotal}" pattern="$#,##0.00" />
@@ -62,20 +66,20 @@
 		</tr>
 	</table>
 	</form>
- <c:if test="${sessionScope.cart.numberOfItems > 0}">
+ <s:if test="%{#cart.numberOfItems > 0}">
 
-		<a class="Button" href="newOrderForm" >Proceed to Checkout</a>
+		<s:a class="Button" href="newOrderForm" >Proceed to Checkout</s:a>
 
-</c:if></div>
+</s:if></div>
 
 <div id="MyList">
-  <c:if test="${sessionScope.accountBean != null}">
-	<c:if test="${!sessionScope.accountBean.authenticated}">
-	  <c:if test="${!empty sessionScope.accountBean.account.listOption}">
+  <s:if test="%{#accountBean != null}">
+	<s:if test="%{!#accountBean.authenticated}">
+	  <s:if test="%{#accountBean.account.listOption !=null }">
 	    <%@ include file="IncludeMyList.jsp"%>
-      </c:if>
-	</c:if>
-  </c:if>
+      </s:if>
+	</s:if>
+  </s:if>
 </div>
 
 <div id="Separator">&nbsp;</div>

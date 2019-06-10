@@ -20,12 +20,12 @@
 		</tr>
 		<tr>
 			<td>Card Number:</td>
-			<td><input type="text" name="order.creditCard" value="${sessionScope.order.creditCard}">* Use a fake
+			<td><input type="text" name="order.creditCard" value="<s:property value="%{#order.creditCard}"/>">* Use a fake
 			number!</td>
 		</tr>
 		<tr>
 			<td>Expiry Date (MM/YYYY):</td>
-			<td><input type="text" size="40" name="account.email" value="${sessionScope.account.email}"></td>
+			<td><input type="text" size="40" name="account.email" value=" <s:property value="%{#account.email}"/>"></td>
 		</tr>
 		<tr>
 			<th colspan=2>Billing Address</th>
@@ -33,35 +33,35 @@
 
 		<tr>
 			<td>First name:</td>
-			<td><input type="text" name="order.billToFirstName" value="${sessionScope.order.billToFirstName}"></td>
+			<td><input type="text" name="order.billToFirstName" value=" <s:property value="%{#order.billToFirstName}"/>"></td>
 		</tr>
 		<tr>
 			<td>Last name:</td>
-			<td><input type="text" name="order.billToLastName"value="${sessionScope.order.billToLastName}"></td>
+			<td><input type="text" name="order.billToLastName" value=" <s:property value="%{#order.billToLastName}"/>"></td>
 		</tr>
 		<tr>
 			<td>Address 1:</td>
-			<td><input type="text" size="40" name="order.billAddress1"value="${sessionScope.order.billAddress1}"></td>
+			<td><input type="text" size="40" name="order.billAddress1"value=" <s:property value="%{#order.billAddress1}"/>"></td>
 		</tr>
 		<tr>
 			<td>Address 2:</td>
-			<td><input type="text" size="40" name="order.billAddress2"value="${sessionScope.order.billAddress2}"></td>
+			<td><input type="text" size="40" name="order.billAddress2"value="  <s:property value="%{#order.billAddress2}"/>"></td>
 		</tr>
 		<tr>
 			<td>City:</td>
-			<td><input type="text" name="order.billCity"value="${sessionScope.order.billCity}"></td>
+			<td><input type="text" name="order.billCity" value=" <s:property value="%{#order.billCity}"/>"></td>
 		</tr>
 		<tr>
 			<td>State:</td>
-			<td><input type="text" size="4" name="order.billState"value="${sessionScope.order.billState}"></td>
+			<td><input type="text" size="4" name="order.billState" value="  <s:property value="%{#order.billState}"/>"></td>
 		</tr>
 		<tr>
 			<td>Zip:</td>
-			<td><input type="text" size="10" name="order.billZip"value="${sessionScope.order.billZip}"></td>
+			<td><input type="text" size="10" name="order.billZip" value=" <s:property value="%{#order.billZip}"/>"></td>
 		</tr>
 		<tr>
 			<td>Country:</td>
-			<td><input type="text" size="15" name="order.billCountry"value="${sessionScope.order.billCountry}" ></td>
+			<td><input type="text" size="15" name="order.billCountry" value=" <s:property value="%{#order.billCountry}"/>"></td>
 		</tr>
 
 		<tr>
