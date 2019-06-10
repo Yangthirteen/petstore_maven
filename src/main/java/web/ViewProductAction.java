@@ -1,35 +1,49 @@
 package web;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.ModelDriven;
+import domain.Item;
 import domain.Product;
 import service.CatelogService;
+
 import java.util.List;
 
-public class ViewProductAction extends ActionSupport implements ModelDriven  {
+public class ViewProductAction extends ActionSupport{
 
-    private CatelogService catelogService;
-    private List<Product> product;
-    private String categoryId;
+    private CatelogService service;
+    private Product product;
+    private List<Item> itemList;
 
-    @Override
-    public Object getModel() {
-        if (product==null){
-            product=catelogService.getProductListByCategory(categoryId);
-        }
+    public ViewProductAction(){
+        service=new CatelogService();
+    }
+
+    public Product getProduct() {
         return product;
+    }
+
+    public void setProduct(Product product) {
+        this.product = product;
+    }
+
+    public List<Item> getItemList() {
+        return itemList;
+    }
+
+    public void setItemList(List<Item> itemList) {
+        this.itemList = itemList;
     }
 
     @Override
     public String execute() throws Exception {
-        return SUCCESS;
-    }
-
-    public String getProductListByCategory(String categoryId) throws Exception{
-        if (catelogService.getProductListByCategory(categoryId)==null){
+        System.out.println(product.getProductId());
+        product=service.getProduct(product.getProductId());
+        itemList=service.getItemListByProduct(product.getCategoryId());
+        /*for (int i=0;i<itemList.size();i++){
+            System.out.println(itemList.get(i).getItemId());
+        }*/
+        if (itemList==null){
             return ERROR;
-        }else {
-            return SUCCESS;
         }
+        return SUCCESS;
     }
 }

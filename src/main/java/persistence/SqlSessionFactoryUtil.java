@@ -25,6 +25,10 @@ public class SqlSessionFactoryUtil {
         return sf;
     }
 
+    public static void main(String[] args) {
+        getSqlSessionFactory();
+    }
+
     /*public static void main(String[] args) {
 
         Account login = new Account();

@@ -12,29 +12,46 @@ SELECT QTY AS value FROM INVENTORY WHERE ITEMID = #{_parameter}
     </select>
 
     <select id="getItemListByProduct" parameterType="java.lang.String" resultType="domain.Item">
-SELECT I.ITEMID,LISTPRICE,UNITCOST,SUPPLIER AS supplierId,I.PRODUCTID AS product.productId,NAME AS product.name,DESCN AS product.description,CATEGORY AS product.categoryId,STATUS,ATTR1 AS attribute1,ATTR2 AS attribute2,ATTR3 AS attribute3,ATTR4 AS attribute4,ATTR5 AS attribute5 FROM ITEM I, PRODUCT P WHERE P.PRODUCTID = I.PRODUCTID AND I.PRODUCTID = #{_parameter}
+        SELECT
+            I.ITEMID,
+            LISTPRICE,
+            UNITCOST,
+            SUPPLIER AS supplierId,
+            I.PRODUCTID AS "product.productId",
+            NAME AS "product.name",
+            DESCN AS "product.description",
+            CATEGORY AS "product.categoryId",
+            STATUS,
+            ATTR1 AS attribute1,
+            ATTR2 AS attribute2,
+            ATTR3 AS attribute3,
+            ATTR4 AS attribute4,
+            ATTR5 AS attribute5
+        FROM ITEM I, PRODUCT P
+        WHERE P.PRODUCTID = I.PRODUCTID
+          AND I.PRODUCTID = #{value}
     </select>
 
     <select id="getItem" parameterType="java.lang.String" resultType="domain.Item">
-select" +
-            " I.ITEMID," +
-            "LISTPRICE," +
-            "UNITCOST," +
-            "SUPPLIER AS supplierId," +
-            "I.PRODUCTID AS product.productId," +
-            "NAME AS product.name," +
-            "DESCN AS product.description," +
-            "CATEGORY AS product.categoryId," +
-            "STATUS," +
-            "ATTR1 AS attribute1," +
-            "ATTR2 AS attribute2," +
-            "ATTR3 AS attribute3," +
-            "ATTR4 AS attribute4," +
-            "ATTR5 AS attribute5," +
-            "QTY AS quantity" +
-            " from ITEM I, INVENTORY V, PRODUCT P" +
-            " where P.PRODUCTID = I.PRODUCTID" +
-            " and I.ITEMID = V.ITEMID" +
-            " and I.ITEMID = #{_parameter}
+        select
+            I.ITEMID,
+            LISTPRICE,
+            UNITCOST,
+            SUPPLIER AS supplierId,
+            I.PRODUCTID AS "product.productId",
+            NAME AS "product.name",
+            DESCN AS "product.description",
+            CATEGORY AS "product.categoryId",
+            STATUS,
+            ATTR1 AS attribute1,
+            ATTR2 AS attribute2,
+            ATTR3 AS attribute3,
+            ATTR4 AS attribute4,
+            ATTR5 AS attribute5,
+            QTY AS quantity
+        from ITEM I, INVENTORY V, PRODUCT P
+        where P.PRODUCTID = I.PRODUCTID
+          and I.ITEMID = V.ITEMID
+          and I.ITEMID = #{value}
     </select>
 </mapper>

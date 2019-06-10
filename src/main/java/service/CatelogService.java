@@ -3,10 +3,11 @@ package service;
 import domain.Category;
 import domain.Item;
 import domain.Product;
+import org.apache.ibatis.session.SqlSession;
 import persistence.CategoryDAO;
 import persistence.ItemDAO;
 import persistence.ProductDAO;
-
+import persistence.SqlSessionFactoryUtil;
 import java.util.List;
 
 public class CatelogService {
@@ -16,6 +17,12 @@ public class CatelogService {
     public ItemDAO itemDAO;
 
     public CatelogService(){
+        SqlSession session = SqlSessionFactoryUtil.getSqlSessionFactory().openSession();
+        //if (session==null)System.out.println("null");
+        //SqlSession session = SqlSessionFactoryUtil.getSqlSessionFactory().openSession();
+        categoryDAO = session.getMapper(CategoryDAO.class);
+        productDAO = session.getMapper(ProductDAO.class);
+        itemDAO = session.getMapper(ItemDAO.class);
     }
 
     public List<Category> getCategoryList() {

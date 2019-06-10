@@ -6,22 +6,24 @@
 
 <struts>
     <package name="demo" extends="struts-default">
-        <action name="demoAction" class="web.DemoAction">
-            <result name="success">/WEB-INF/jsp/Demo.jsp</result>
-        </action>
-
         <action name="main" class="web.MainAction">
+            <result name="input">/WEB-INF/jsp/account/SignonForm.jsp</result>
             <result name="success">/WEB-INF/jsp/catelog/Main.jsp</result>
         </action>
 
-        <action name="viewProduct" class="web.ViewProductAction" method="getProductListByCategory">
+        <action name="viewProduct" class="web.ViewProductAction">
             <result name="success">/WEB-INF/jsp/catelog/Product.jsp</result>
             <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
         </action>
 
-        <action name="viewCategory" class="web.ViewCategoryAction" method="getProductListByCategory">
+        <action name="viewCategory" class="web.ViewCategoryAction">
             <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
-            <result name="success">/WEB-INF/jsp/catelog/Product.jsp</result>
+            <result name="success">/WEB-INF/jsp/catelog/Category.jsp</result>
+        </action>
+
+        <action name="viewItem" class="web.ViewItemAction">
+            <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
+            <result name="success">/WEB-INF/jsp/catelog/Item.jsp</result>
         </action>
     </package>
 </struts>

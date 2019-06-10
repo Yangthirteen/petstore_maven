@@ -4,10 +4,8 @@ import domain.Item;
 import domain.LineItem;
 import domain.Order;
 import domain.Sequence;
-import persistence.ItemDAO;
-import persistence.LineItemDAO;
-import persistence.OrderDAO;
-import persistence.SequanceDAO;
+import org.apache.ibatis.session.SqlSession;
+import persistence.*;
 
 import java.util.List;
 
@@ -16,9 +14,14 @@ public class OrderService {
     public ItemDAO itemDAO;
     public OrderDAO orderDAO;
     public LineItemDAO lineItemDAO;
-    public SequanceDAO sequanceDAO;
+    public SequanceDAO sequenceDAO;
 
     public OrderService(){
+        SqlSession session = SqlSessionFactoryUtil.getSqlSessionFactory().openSession();
+        itemDAO=session.getMapper(ItemDAO.class);
+        orderDAO=session.getMapper(OrderDAO.class);
+        lineItemDAO=session.getMapper(LineItemDAO.class);
+        sequenceDAO =session.getMapper(SequanceDAO.class);
     }
 
     public void insertOrder(Order order) throws Exception {
@@ -61,13 +64,13 @@ public class OrderService {
 
     public int getNextId(String name) throws Exception {
         Sequence sequence = new Sequence(name, -1);
-        sequence = (Sequence) sequanceDAO.getSequence(sequence);
+        sequence = (Sequence) sequenceDAO.getSequence(sequence);
         if (sequence == null) {
             throw new RuntimeException("Error: A null sequence was returned from the database (could not get next " + name
                     + " sequence).");
         }
         Sequence parameterObject = new Sequence(name, sequence.getNextId() + 1);
-        sequanceDAO.updateSequence(parameterObject);
+        sequenceDAO.updateSequence(parameterObject);
         return sequence.getNextId();
     }
 

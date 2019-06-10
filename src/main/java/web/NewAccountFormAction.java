@@ -2,9 +2,7 @@ package web;
 
 import com.opensymphony.xwork2.ActionSupport;
 
-public class MainAction extends ActionSupport {
-
-    public MainAction(){}
+public class NewAccountFormAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
