@@ -29,7 +29,7 @@ SELECT QTY AS value FROM INVENTORY WHERE ITEMID = #{_parameter}
             ATTR5 AS attribute5
         FROM ITEM I, PRODUCT P
         WHERE P.PRODUCTID = I.PRODUCTID
-          AND I.PRODUCTID = #{value}
+        AND I.PRODUCTID = #{_parameter}
     </select>
 
     <select id="getItem" parameterType="java.lang.String" resultType="domain.Item">
@@ -52,6 +52,6 @@ SELECT QTY AS value FROM INVENTORY WHERE ITEMID = #{_parameter}
         from ITEM I, INVENTORY V, PRODUCT P
         where P.PRODUCTID = I.PRODUCTID
           and I.ITEMID = V.ITEMID
-          and I.ITEMID = #{value}
+          and I.ITEMID = #{_parameter}
     </select>
 </mapper>

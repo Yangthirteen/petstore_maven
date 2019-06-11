@@ -25,5 +25,14 @@
             <result name="error">/WEB-INF/jsp/common/Error.jsp</result>
             <result name="success">/WEB-INF/jsp/catelog/Item.jsp</result>
         </action>
+
+        <action name="signonForm" class="web.SignOnFormAction">
+            <result name="success">/WEB-INF/jsp/account/SignonForm.jsp</result>
+        </action>
+
+        <action name="signOn" class="web.SignOnAction">
+            <result name="success">/WEB-INF/jsp/catelog/Main.jsp</result>
+            <result name="input">/WEB-INF/jsp/account/SignonForm.jsp</result>
+        </action>
     </package>
 </struts>

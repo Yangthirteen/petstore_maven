@@ -58,4 +58,13 @@ public class CatelogService {
     public boolean isItemInStock(String itemId) {
         return itemDAO.getInventoryQuantity(itemId) > 0;
     }
+
+    public static void main(String[] args) {
+        List<Item> itemList;
+        CatelogService service=new CatelogService();
+        itemList=service.getItemListByProduct("K9-RT-01");
+        for (int i=0;i<itemList.size();i++){
+            System.out.println(itemList.get(i).getProductId());
+        }
+    }
 }

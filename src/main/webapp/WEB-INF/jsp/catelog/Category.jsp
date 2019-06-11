@@ -16,7 +16,7 @@
 		<tr>
 			<td>
 
-				<s:a href="viewProduct?productId=%{#product.productId}"><s:property value="%{#product.productId}"/></s:a>
+				<s:a href="viewProduct?product.productId=%{#product.productId}"><s:property value="%{#product.productId}"/></s:a>
 
 			</td>
 

@@ -11,8 +11,8 @@ public class SignOnAction extends ActionSupport {
     private AccountService accountService;
     private boolean authenticated;
     private Account account;
-    private String code1;
-    private String code;
+    //private String code1;
+    //private String code;
     private boolean flag;
     private String message;
 
@@ -34,7 +34,7 @@ public class SignOnAction extends ActionSupport {
         this.flag = flag;
     }
 
-    public String getCode1() {
+    /*public String getCode1() {
         return code1;
     }
 
@@ -48,7 +48,7 @@ public class SignOnAction extends ActionSupport {
 
     public void setCode(String code) {
         this.code = code;
-    }
+    }*/
 
     public Account getAccount() {
         return account;
@@ -85,17 +85,19 @@ public class SignOnAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         account=accountService.getAccount(username,password);
-        if (!code.toLowerCase().equals(code1.toLowerCase())){
-            flag=true;
-        }else{
-            flag=false;
+        //if (!code.toLowerCase().equals(code1.toLowerCase())){
+        //    flag=true;
+       // }else{
+         //   flag=false;
             if (account==null){
                 authenticated=false;
                 message="Invalid username or password.  Signon failed.";
-            }else{
-                authenticated=true;
+                return INPUT;
+            //}else{
+            //    authenticated=true;
             }
-        }
+        //}
+        authenticated=true;
         return SUCCESS;
     }
 }

@@ -2,7 +2,7 @@
 
 <div id="BackLink">
 	
-	<s:a href="viewProduct?productId=%{#product.productId}">Return to <s:property value=" %{#product.productId}"/></s:a>
+	<s:a href="viewProduct?product.productId=%{#product.productId}">Return to <s:property value=" %{#product.productId}"/></s:a>
 </div>
 
 <div id="Catalog">
