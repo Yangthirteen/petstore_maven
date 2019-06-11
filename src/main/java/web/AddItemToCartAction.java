@@ -3,9 +3,9 @@ package web;
 import com.opensymphony.xwork2.ActionSupport;
 import domain.Account;
 import domain.Cart;
+import service.AccountService;
 import service.CatelogService;
 import service.UserActionService;
-
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -13,12 +13,14 @@ public class AddItemToCartAction extends ActionSupport {
     private String workingItemId;
     private Cart cart;
     private Account account;
+    private AccountService accountService;
     private UserActionService userActionService;
     private CatelogService catelogService;
 
     public AddItemToCartAction(){
         userActionService=new UserActionService();
         catelogService =new CatelogService();
+        accountService=new AccountService();
     }
 
     public Cart getCart() {
@@ -50,6 +52,7 @@ public class AddItemToCartAction extends ActionSupport {
         Date currentData=new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
         String date = sdf.format(currentData);
+        account=accountService.getAccount(account.getUsername());
         userActionService.record(account.getUsername(),"add item to cart ",workingItemId,date);
         return SUCCESS;
     }

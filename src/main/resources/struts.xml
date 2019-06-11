@@ -34,5 +34,10 @@
             <result name="success">/WEB-INF/jsp/catelog/Main.jsp</result>
             <result name="input">/WEB-INF/jsp/account/SignonForm.jsp</result>
         </action>
+
+        <action name="addItemToCart" class="web.AddItemToCartAction">
+            <result name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
+            <result name="error"></result>
+        </action>
     </package>
 </struts>

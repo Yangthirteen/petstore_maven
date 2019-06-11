@@ -1,14 +1,15 @@
 <%@ include file="../common/IncludeTop.jsp"%>
 
 
+
 <div id="BackLink">
-	<s:a href="viewCategory?category.categoryId=%{#product.categoryId}">Return to <s:property value="product.categoryId"/></s:a>
+	<s:a href="viewCategory?product.categoryId=%{#product.categoryId}">Return to <s:property value="%{#product.categoryId}"/></s:a>
 
 </div>
 
 <div id="Catalog">
 
-<h2> <s:property value="product.name"/> </h2>
+<h2> <s:property value="#product.name"/> </h2>
 
 <table>
 	<tr>
