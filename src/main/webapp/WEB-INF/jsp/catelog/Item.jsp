@@ -10,7 +10,7 @@
 <table>
 	<tr>
 
-		<td><s:property value="#product.description"/></td>
+		<td><s:property value="#item.product.description"/></td>
 	</tr>
 	<tr>
 

@@ -173,7 +173,7 @@
 
         </s:if>
             <s:if test="account !=null">
-                console.log(authenticated);
+
             <s:if test="!authenticated">
                 <s:a href="signonForm">  Sign In </s:a>
             </s:if>

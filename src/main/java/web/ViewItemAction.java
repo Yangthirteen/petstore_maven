@@ -24,6 +24,7 @@ public class ViewItemAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         item=service.getItem(item.getItemId());
+        System.out.println(item.getProduct().getProductId()+item.getAttribute1()+item.getAttribute2());
         if (item==null)
             return ERROR;
         return SUCCESS;

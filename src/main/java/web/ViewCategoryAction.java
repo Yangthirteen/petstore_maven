@@ -35,7 +35,7 @@ public class ViewCategoryAction extends ActionSupport{
 
 
     public String execute() throws Exception{
-        System.out.println(category.getCategoryId());
+        //System.out.println(category.getCategoryId());
         category=service.getCategory(category.getCategoryId());
         productList=service.getProductListByCategory(category.getCategoryId());
         if (productList==null){

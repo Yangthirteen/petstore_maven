@@ -3,7 +3,7 @@
 
 
 <div id="BackLink">
-	<s:a href="viewCategory?categoryId=%{#product.categoryId}">Return to <s:property value=" %{#product.categoryId}"/></s:a>
+	<s:a href="viewCategory?product.categoryId=%{#product.categoryId}">Return to <s:property value="%{#product.categoryId}"/></s:a>
 
 </div>
 
@@ -19,10 +19,10 @@
 		<th>List Price</th>
 		<th>&nbsp;</th>
 	</tr>
-	<s:iterator var="item" value="itemList">
+	<s:iterator  value="itemList" var="item">
 		<tr>
 			<td>
-				<s:a href="viewItem?itemId=%{#item.itemId}"><s:property value="%{#item.itemId}"/> </s:a>
+				<s:a href="viewItem?item.itemId=%{#item.itemId}"><s:property value="%{#item.itemId}"/> </s:a>
 			</td>
 			<td><s:property value="%{#item.product.productId}"/> </td>
 			<td>

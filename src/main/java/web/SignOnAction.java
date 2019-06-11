@@ -74,11 +74,11 @@ public class SignOnAction extends ActionSupport {
         this.password = password;
     }
 
-    boolean getAuthenticated(){
+    public boolean getAuthenticated(){
         return authenticated;
     }
 
-    void setAuthenticated(boolean authenticated){
+    public void setAuthenticated(boolean authenticated){
         this.authenticated=authenticated;
     }
 

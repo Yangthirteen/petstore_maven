@@ -14,7 +14,7 @@ SELECT QTY AS value FROM INVENTORY WHERE ITEMID = #{_parameter}
     <select id="getItemListByProduct" parameterType="java.lang.String" resultType="domain.Item">
         SELECT
             I.ITEMID,
-            LISTPRICE,
+            LISTPRICE as listPrice,
             UNITCOST,
             SUPPLIER AS supplierId,
             I.PRODUCTID AS "product.productId",
