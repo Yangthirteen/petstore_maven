@@ -85,6 +85,7 @@ public class SignOnAction extends ActionSupport {
     @Override
     public String execute() throws Exception {
         account=accountService.getAccount(username,password);
+        System.out.println(account.getUsername());
         //if (!code.toLowerCase().equals(code1.toLowerCase())){
         //    flag=true;
        // }else{

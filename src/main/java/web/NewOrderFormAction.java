@@ -4,17 +4,21 @@ import com.opensymphony.xwork2.ActionSupport;
 import domain.Account;
 import domain.Cart;
 import domain.Order;
+import service.AccountService;
 import service.OrderService;
 
 public class NewOrderFormAction extends ActionSupport {
 
+    private AccountService accountService;
     private Order order;
     private Account account;
     private String message;
     private Cart cart;
     private OrderService orderService;
 
-    public NewOrderFormAction(){orderService=new OrderService();}
+    public NewOrderFormAction(){
+        accountService=new AccountService();
+        orderService=new OrderService();}
 
     public Cart getCart() {
         return cart;

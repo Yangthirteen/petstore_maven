@@ -19,7 +19,7 @@
 <div id="Main">
     <div id="Sidebar">
         <div id="SidebarContent">
-            <s:a href="viewCategory?category.categoryId=FISH"><img src="images/fish_icon.gif" /></s:a>
+            <s:a href="viewCategory?category.categoryId=FISH&accunt.username=%{#account.username}"><img src="images/fish_icon.gif" /></s:a>
             <br/> Saltwater, Freshwater <br/>
             <s:a href="viewCategory?category.categoryId=DOGS"><img src="images/dogs_icon.gif" /></s:a>
             <br /> Various Breeds <br />

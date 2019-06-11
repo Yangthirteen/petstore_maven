@@ -1,17 +1,22 @@
 package web;
 
 import com.opensymphony.xwork2.ActionSupport;
+import domain.Account;
 import domain.Cart;
 import domain.CartItem;
+import service.AccountService;
 
 import java.util.Iterator;
 
 public class UpdateCartQuantitiesAction extends ActionSupport {
+
     private Iterator<CartItem> cartItems;
     private Cart cart;
     private String itemId;
+    private AccountService accountService;
+    private Account account;
 
-    public UpdateCartQuantitiesAction(){}
+    public UpdateCartQuantitiesAction(){accountService=new AccountService();}
 
     public String getItemId() {
         return itemId;
@@ -37,8 +42,18 @@ public class UpdateCartQuantitiesAction extends ActionSupport {
         this.cartItems = cartItems;
     }
 
+    public Account getAccount() {
+        return account;
+    }
+
+    public void setAccount(Account account) {
+        this.account = account;
+    }
+
     @Override
     public String execute() throws Exception {
+        if (account!=null)
+            account=accountService.getAccount(account.getUsername());
         cartItems = cart.getAllCartItems();
         while (cartItems.hasNext()) {
             CartItem cartItem = (CartItem) cartItems.next();

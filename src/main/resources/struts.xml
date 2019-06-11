@@ -37,7 +37,7 @@
 
         <action name="addItemToCart" class="web.AddItemToCartAction">
             <result name="success">/WEB-INF/jsp/cart/Cart.jsp</result>
-            <result name="error"></result>
+            <result name="login">/WEB-INF/jsp/account/SignonForm.jsp</result>
         </action>
     </package>
 </struts>

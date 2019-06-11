@@ -49,9 +49,13 @@ public class AddItemToCartAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
+        if (account!=null)
+            account=accountService.getAccount(account.getUsername());
         Date currentData=new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd  hh:mm:ss");
         String date = sdf.format(currentData);
+        if (account==null)
+            return LOGIN;
         account=accountService.getAccount(account.getUsername());
         userActionService.record(account.getUsername(),"add item to cart ",workingItemId,date);
         return SUCCESS;

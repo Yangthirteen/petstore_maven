@@ -172,19 +172,19 @@
             <s:a href="signonForm">  Sign In </s:a>
 
         </s:if>
-            <s:if test="account !=null">
+            <s:if test="account ==null">
 
-            <s:if test="!authenticated">
+
                 <s:a href="signonForm">  Sign In </s:a>
-            </s:if>
+
         </s:if>
             <s:if test="account !=null">
-            <s:if test="authenticated">
+
                 <s:a href="signOff">   Sign Out </s:a>
                 <img align="middle" src="images/separator.gif" />
 
                 <s:a href="editAccountForm?username=%{#account.username}">    My Account </s:a>
-            </s:if>
+
         </s:if>
             <img align="middle" src="images/separator.gif" /> <a
                 href="help.html">?</a></div>

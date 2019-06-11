@@ -3,16 +3,20 @@ package web;
 import com.opensymphony.xwork2.ActionSupport;
 import domain.Account;
 import domain.Order;
+import service.AccountService;
 import service.OrderService;
 
 import java.util.List;
 
 public class ListOrdersAction extends ActionSupport {
+
+    private Account account;
+    private AccountService accountService;
     List<Order> orderList;
     OrderService orderService;
-    Account account;
 
     public ListOrdersAction(){
+        accountService=new AccountService();
         orderService=new OrderService();
     }
 
@@ -34,6 +38,8 @@ public class ListOrdersAction extends ActionSupport {
 
     @Override
     public String execute() throws Exception {
+        if (account!=null)
+            account=accountService.getAccount(account.getUsername());
         orderList = orderService.getOrdersByUsername(account.getUsername());
         return SUCCESS;
     }
