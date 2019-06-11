@@ -35,7 +35,7 @@ public class ViewProductAction extends ActionSupport{
 
     @Override
     public String execute() throws Exception {
-        System.out.println(product.getProductId());
+        //System.out.println(product.getProductId());
         product=service.getProduct(product.getProductId());
         itemList=service.getItemListByProduct(product.getCategoryId());
         /*for (int i=0;i<itemList.size();i++){
