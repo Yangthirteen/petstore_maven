@@ -10,9 +10,9 @@
             <transactionManager type="JDBC"/>
             <dataSource type="POOLED">
                 <property name="driver" value="com.mysql.cj.jdbc.Driver"/>
-                <property name="url" value="jdbc:mysql://localhost:3306/petstore?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC"/>
+                <property name="url" value="jdbc:mysql://localhost:3306/myjepetstore?useUnicode=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC"/>
                 <property name="username" value="root"/>
-                <property name="password" value="1785054901hong"/>
+                <property name="password" value="213218"/>
             </dataSource>
         </environment>
     </environments>

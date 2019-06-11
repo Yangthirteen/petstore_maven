@@ -205,17 +205,17 @@
     </div>
 
     <div id="QuickLinks">
-        <s:a href="viewCategory?categoryId=FISH"><img
+        <s:a href="viewCategory?category.categoryId=FISH"><img
                 src="images/sm_fish.gif" /></s:a> <img src="images/separator.gif" />
-        <s:a href="viewCategory?categoryId=DOGS"><img
+        <s:a href="viewCategory?category.categoryId=DOGS"><img
                 src="images/sm_dogs.gif" /></s:a> <img src="images/separator.gif" />
-        <s:a href="viewCategory?categoryId=REPTILES"><img
+        <s:a href="viewCategory?category.categoryId=REPTILES"><img
                 src="images/sm_reptiles.gif" /></s:a> <img
                 src="images/separator.gif" />
-        <s:a href="viewCategory?categoryId=CATS"><img
+        <s:a href="viewCategory?category.categoryId=CATS"><img
                 src="images/sm_cats.gif" /></s:a> <img
                 src="images/separator.gif" />
-        <s:a href="viewCategory?categoryId=BIRDS"><img
+        <s:a href="viewCategory?category.categoryId=BIRDS"><img
                 src="images/sm_birds.gif" /></s:a>
 
     </div>

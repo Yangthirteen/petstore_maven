@@ -36,17 +36,17 @@
         <div id="MainImageContent">
             <map name="estoremap">
                 <area alt="Birds" coords="72,2,280,250"
-                      href="viewCategory?categoryId=BIRDS" shape="RECT" />
+                      href="viewCategory?category.categoryId=BIRDS" shape="RECT" />
                 <area alt="Fish" coords="2,180,72,250"
-                      href="viewCategory?categoryId=FISH" shape="RECT" />
+                      href="viewCategory?category.categoryId=FISH" shape="RECT" />
                 <area alt="Dogs" coords="60,250,130,320"
-                      href="viewCategory?categoryId=DOGS" shape="RECT" />
+                      href="viewCategory?category.categoryId=DOGS" shape="RECT" />
                 <area alt="Reptiles" coords="140,270,210,340"
-                      href="viewCategory?categoryId=REPTILES" shape="RECT" />
+                      href="viewCategory?category.categoryId=REPTILES" shape="RECT" />
                 <area alt="Cats" coords="225,240,295,310"
-                      href="viewCategory?categoryId=CATS" shape="RECT" />
+                      href="viewCategory?category.categoryId=CATS" shape="RECT" />
                 <area alt="Birds" coords="280,180,350,250"
-                      href="viewCategory?categoryId=BIRDS" shape="RECT" />
+                      href="viewCategory?category.categoryId=BIRDS" shape="RECT" />
             </map>
             <img height="355" src="images/splash.gif" align="middle" usemap="#estoremap" width="350" />
         </div>

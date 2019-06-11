@@ -1,20 +1,20 @@
+<%@ taglib prefix="S" uri="/struts-tags" %>
 <%@ include file="../common/IncludeTop.jsp"%>
 
 <div id="BackLink">
 	
-	<s:a href="viewProduct?product.productId=%{#product.productId}">Return to <s:property value=" %{#product.productId}"/></s:a>
-</div>
+	<s:a href="viewProduct?product.productId=%{#product.productId}">Return to <s:property value=" product.productId"/></s:a>
 
+</div>
 <div id="Catalog">
 
 <table>
 	<tr>
-
-		<td><s:property value="#item.product.description"/></td>
+		<td><s:property value="item.product.description"/></td>
 	</tr>
 	<tr>
 
-		<td><b> <s:property value="#item.itemId"/> </b></td>
+		<td><b> <s:property value="item.itemId"/> </b></td>
 	</tr>
 	<tr>
 		<td><b><font size="4">
@@ -27,13 +27,13 @@
 		</font></b></td>
 	</tr>
 	<tr>
-		<td><s:property value="#product.name"/></td>
+		<td><s:property value="product.name"/></td>
 	</tr>
 	<tr>
 		<td><s:if test="%{#item.quantity <= 0}">
         Back ordered.
       </s:if> <s:if test="%{#item.quantity > 0}">
-			<s:property value="#item.quantity"/> in stock.
+			<s:property value="item.quantity"/> in stock.
 	  </s:if></td>
 	</tr>
 	<tr>

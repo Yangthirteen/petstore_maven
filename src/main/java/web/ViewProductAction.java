@@ -13,9 +13,6 @@ public class ViewProductAction extends ActionSupport{
     private Product product;
     private List<Item> itemList;
 
-    public ViewProductAction(){
-        service=new CatelogService();
-    }
 
     public Product getProduct() {
         return product;
@@ -32,12 +29,16 @@ public class ViewProductAction extends ActionSupport{
     public void setItemList(List<Item> itemList) {
         this.itemList = itemList;
     }
+    public ViewProductAction(){
+        service=new CatelogService();
+    }
+
 
     @Override
     public String execute() throws Exception {
 
         product=service.getProduct(product.getProductId());
-        System.out.println(product.getCategoryId());
+        //System.out.println(product.getCategoryId());
         //System.out.println(product.getName());
         itemList=service.getItemListByProduct(product.getProductId());
 
